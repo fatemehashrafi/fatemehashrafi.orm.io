@@ -10,8 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
-const employee_1 = require("./employee");
-const person_1 = require("./person");
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -21,14 +19,15 @@ function main() {
                 port: 5433,
                 username: "postgres",
                 password: "fa30te5meh81",
-                database: "app",
+                // database :"app",
+                database: "text",
                 synchronize: true,
-                entities: [person_1.person, employee_1.Employee],
+                entities: ["TribeEntity", "WarEntity", "HeroEntity"],
                 extra: {
                     trustServerCertificate: true
                 }
             });
-            console.log("databese contanate");
+            console.log("databese connected");
         }
         catch (e) {
             console.error(e);
