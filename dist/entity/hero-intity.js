@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.HeroEntity = void 0;
 const typeorm_1 = require("typeorm");
 const tribe_intity_1 = require("./tribe-intity");
-let HeroEntity = class HeroEntity {
+let HeroEntity = class HeroEntity extends typeorm_1.BaseEntity {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),

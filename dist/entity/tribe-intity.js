@@ -13,7 +13,7 @@ exports.TribeEntity = void 0;
 const typeorm_1 = require("typeorm");
 const hero_intity_1 = require("./hero-intity");
 const war_entity_1 = require("./war-entity");
-let TribeEntity = class TribeEntity {
+let TribeEntity = class TribeEntity extends typeorm_1.BaseEntity {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
