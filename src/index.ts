@@ -18,7 +18,7 @@ async function main(){
         // database :"app",
         database :"newdb",
         synchronize :true,
-        entities:["TribeEntity","WarEntity","HeroEntity"],
+        entities:[TribeEntity,WarEntity,HeroEntity],
         extra :{
             trustServerCertificate:true
         }

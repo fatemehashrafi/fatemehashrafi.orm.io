@@ -13,6 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const typeorm_1 = require("typeorm");
+const hero_intity_1 = require("./entity/hero-intity");
+const tribe_intity_1 = require("./entity/tribe-intity");
+const war_entity_1 = require("./entity/war-entity");
 const express_1 = __importDefault(require("express"));
 const hero_controller_1 = require("./router/hero-controller");
 const tribe_controller_1 = require("./router/tribe-controller");
@@ -29,7 +32,7 @@ function main() {
                 // database :"app",
                 database: "newdb",
                 synchronize: true,
-                entities: ["TribeEntity", "WarEntity", "HeroEntity"],
+                entities: [tribe_intity_1.TribeEntity, war_entity_1.WarEntity, hero_intity_1.HeroEntity],
                 extra: {
                     trustServerCertificate: true
                 }
