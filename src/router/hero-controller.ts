@@ -13,6 +13,12 @@ const heroService = new HeroService();
       return req.json(hero);
  });
 
+ router.get('/',async(req ,res)=>{
+    //  console.log(req.query);
+      const herose= await heroService.findAll();
+      return res.json(herose);
+ })
+
 export{
     router as HeroController
 }

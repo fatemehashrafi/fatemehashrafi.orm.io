@@ -26,3 +26,8 @@ router.post('/', (res, req) => __awaiter(void 0, void 0, void 0, function* () {
     hero = yield heroService.insert(hero);
     return req.json(hero);
 }));
+router.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    //  console.log(req.query);
+    const herose = yield heroService.findAll();
+    return res.json(herose);
+}));

@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.HeroService = void 0;
+const typeorm_1 = require("typeorm");
 const hero_intity_1 = require("../entity/hero-intity");
 class HeroService {
     insert(date) {
@@ -22,6 +23,23 @@ class HeroService {
         return __awaiter(this, void 0, void 0, function* () {
             const tribe = yield hero_intity_1.HeroEntity.findOne(id);
             return tribe;
+        });
+    }
+    findAll() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const herose = yield hero_intity_1.HeroEntity.find({
+                where: {
+                    name: (0, typeorm_1.Like)("%hero%"),
+                },
+                join: {
+                    alias: "tribe",
+                    innerJoinAndSelect: {
+                        hero: "tribe-herose",
+                    }
+                },
+                // relations:["herose"],
+            });
+            return herose;
         });
     }
 }

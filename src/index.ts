@@ -16,9 +16,10 @@ async function main(){
         username :"postgres",
         password :"fa30te5meh81",
         // database :"app",
-        database :"newdb",
+        database :"text",
         synchronize :true,
         entities:[TribeEntity,WarEntity,HeroEntity],
+        logging:true,
         extra :{
             trustServerCertificate:true
         }

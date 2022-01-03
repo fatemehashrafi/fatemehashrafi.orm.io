@@ -20,8 +20,11 @@ export class TribeService{
         }else{
            tribe.herose=[hero];
         }
-         await tribe.save();
-        return tribe;
-            
+         return await tribe.save();
+          
+    }
+
+    public async delete(id :number){
+       return TribeEntity.delete(id);
     }
 }

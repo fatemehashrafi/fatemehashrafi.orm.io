@@ -9,10 +9,10 @@ const heroService= new HeroService();
  router.post('/' , async (res,req)=>{
      const {name} = res.body ;
 
-     let hero =new TribeEntity();
-     hero.name=name;
-      hero=await tribeService.insert(hero);
-      return req.json(hero);
+     let tribe =new TribeEntity();
+     tribe.name=name;
+     tribe=await tribeService.insert(tribe);
+      return req.json(tribe);
  });
 
  router.put('/:tribeId/new.hero/:heroId',async(req,res)=>{
@@ -33,6 +33,24 @@ const heroService= new HeroService();
 
  });
 
-export{
-    router as TribeController
-}
+    router.delete('/:id',async(req,res)=>{
+        try{
+        const {id} =req.params;
+        const tribe= await tribeService.find(parseInt(id));
+        if(!tribe){
+            res.status(404).send("tribe not found");
+        }
+         await tribeService.delete(parseInt(id));
+        return res.json(tribe);
+    }
+    catch(e){
+        res.send(500).send(`Eror: ${e}`);
+
+    }
+
+
+    })
+
+export{router as TribeController}
+
+    

@@ -30,9 +30,10 @@ function main() {
                 username: "postgres",
                 password: "fa30te5meh81",
                 // database :"app",
-                database: "newdb",
+                database: "text",
                 synchronize: true,
                 entities: [tribe_intity_1.TribeEntity, war_entity_1.WarEntity, hero_intity_1.HeroEntity],
+                logging: true,
                 extra: {
                     trustServerCertificate: true
                 }

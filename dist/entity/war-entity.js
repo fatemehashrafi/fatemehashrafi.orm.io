@@ -12,8 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.WarEntity = void 0;
 const typeorm_1 = require("typeorm");
 const tribe_intity_1 = require("./tribe-intity");
-class WarEntity {
-}
+let WarEntity = class WarEntity {
+};
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
@@ -37,4 +37,7 @@ __decorate([
     }),
     __metadata("design:type", Array)
 ], WarEntity.prototype, "tribes", void 0);
+WarEntity = __decorate([
+    (0, typeorm_1.Entity)()
+], WarEntity);
 exports.WarEntity = WarEntity;

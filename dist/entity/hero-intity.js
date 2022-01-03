@@ -23,7 +23,9 @@ __decorate([
     __metadata("design:type", String)
 ], HeroEntity.prototype, "name", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => tribe_intity_1.TribeEntity, tribe => tribe.herose),
+    (0, typeorm_1.ManyToOne)(() => tribe_intity_1.TribeEntity, tribe => tribe.herose, {
+        onDelete: "SET NULL",
+    }),
     (0, typeorm_1.JoinColumn)({
         name: "tribeID"
     }),

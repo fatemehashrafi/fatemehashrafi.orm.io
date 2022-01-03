@@ -34,8 +34,12 @@ class TribeService {
             else {
                 tribe.herose = [hero];
             }
-            yield tribe.save();
-            return tribe;
+            return yield tribe.save();
+        });
+    }
+    delete(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return tribe_intity_1.TribeEntity.delete(id);
         });
     }
 }

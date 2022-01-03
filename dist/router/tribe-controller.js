@@ -23,10 +23,10 @@ const tribeService = new tribeservice_1.TribeService();
 const heroService = new HeroService_1.HeroService();
 router.post('/', (res, req) => __awaiter(void 0, void 0, void 0, function* () {
     const { name } = res.body;
-    let hero = new tribe_intity_1.TribeEntity();
-    hero.name = name;
-    hero = yield tribeService.insert(hero);
-    return req.json(hero);
+    let tribe = new tribe_intity_1.TribeEntity();
+    tribe.name = name;
+    tribe = yield tribeService.insert(tribe);
+    return req.json(tribe);
 }));
 router.put('/:tribeId/new.hero/:heroId', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { tribeId, heroId } = req.params;
@@ -40,4 +40,18 @@ router.put('/:tribeId/new.hero/:heroId', (req, res) => __awaiter(void 0, void 0,
     }
     const updateTribe = tribeService.addHero(tribe, hero);
     return updateTribe;
+}));
+router.delete('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id } = req.params;
+        const tribe = yield tribeService.find(parseInt(id));
+        if (!tribe) {
+            res.status(404).send("tribe not found");
+        }
+        yield tribeService.delete(parseInt(id));
+        return res.json(tribe);
+    }
+    catch (e) {
+        res.send(500).send(`Eror: ${e}`);
+    }
 }));

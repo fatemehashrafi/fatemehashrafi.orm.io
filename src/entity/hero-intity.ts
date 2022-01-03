@@ -12,7 +12,10 @@ export class HeroEntity extends BaseEntity{
 
      @ManyToOne(
            ()=> TribeEntity,
-           tribe => tribe.herose
+           tribe => tribe.herose,{
+                 onDelete:"SET NULL",
+           }
+         
      )
      @JoinColumn({
            name :"tribeID" 

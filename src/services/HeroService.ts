@@ -1,3 +1,4 @@
+import { Like, RelationId } from "typeorm";
 import { HeroEntity } from "../entity/hero-intity";
 
 export class HeroService{
@@ -9,5 +10,22 @@ export class HeroService{
     public async find(id:number){
         const tribe=await HeroEntity.findOne(id);
          return tribe;
+    }
+
+    public async findAll(){
+        const herose= await HeroEntity.find({
+            where :{
+                name :Like("%hero%"),
+            },
+            join:{
+                alias:"tribe",
+                innerJoinAndSelect:{
+                    hero:"tribe-herose",
+                }
+            },
+            // relations:["herose"],
+        });
+        
+        return herose;
     }
 }

@@ -1,6 +1,7 @@
-import { Column, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 import { TribeEntity } from "./tribe-intity";
 
+@Entity()
 export class WarEntity{
     @PrimaryGeneratedColumn()
     id :number;
